@@ -1,0 +1,25 @@
+type User {
+  id: ID! @unique
+  name: String!
+  email: String! @unique
+  createdAt: DateTime!
+  conversations: [Conversation]! @relation(name: "UsersInConversation")
+}
+
+type Message {
+  id: ID! @unique
+  sender: User!
+  createdAt: DateTime!
+  content: String!
+  conversation: Conversation @relation(name: "MessagesInConversation")
+}
+
+type Conversation {
+  id: ID! @unique
+  members: [User!]! @relation(name: "UsersInConversation", onDelete: SET_NULL)
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  messages: [Message!]!
+    @relation(name: "MessagesInConversation", onDelete: CASCADE)
+}
