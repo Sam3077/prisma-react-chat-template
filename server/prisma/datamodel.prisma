@@ -1,6 +1,7 @@
 type User {
   id: ID! @unique
   name: String!
+  name_lc: String!
   email: String! @unique
   createdAt: DateTime!
   conversations: [Conversation]! @relation(name: "UsersInConversation")

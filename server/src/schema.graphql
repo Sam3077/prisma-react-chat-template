@@ -1,0 +1,15 @@
+# import User from './generated/prisma.graphql'
+# import Message from './generated/prisma.graphql'
+# import Conversation from './generated/prisma.graphql'
+
+type Query {
+  user(id: ID!): User
+  messages(conversationId: ID!): Conversation
+  users(searchString: String!): [User!]
+}
+
+type Mutation {
+  createConversation(userIds: [ID!]!): Conversation
+  sendMessage(fromId: ID!, conversationId: ID!, content: String!): Message
+  createUser(name: String!, email: String!): User
+}

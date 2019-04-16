@@ -2,5 +2,19 @@
   "name": "my-yoga-server",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "graphql-yoga": "^1.17.4",
+    "prisma-binding": "^2.3.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "cross-env": "^5.2.0",
+    "nodemon": "^1.18.11"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node src/index.js"
+  }
 }
